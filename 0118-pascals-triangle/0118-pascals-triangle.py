@@ -1,12 +1,10 @@
-import math
 class Solution(object):
     def generate(self, numRows):
         pascal = []
 
         for i in range(0, numRows, +1):
-            curList = []
-            for j in range(0, i + 1, +1):
-                nCr = math.factorial(i) // (math.factorial(j) * math.factorial(i - j))
-                curList.append(nCr)
+            curList = [1] * (i + 1)
+            for j in range(1, i, +1):
+                curList[j] = pascal[i - 1][j - 1] + pascal[i - 1][j]
             pascal.append(curList)
         return pascal
