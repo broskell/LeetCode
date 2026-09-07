@@ -1,4 +1,3 @@
-import math
 class Solution(object):
     def smallestDivisor(self, nums, threshold):
         left, right = 1, max(nums)
@@ -6,10 +5,8 @@ class Solution(object):
 
         while left <= right:
             mid = (left + right) // 2
-            curSum = 0
-
-            for num in nums:
-                curSum += math.ceil(float(num) / mid)
+            
+            curSum = sum((num + mid - 1) // mid for num in nums)
             
             if curSum <= threshold:
                 result = mid
