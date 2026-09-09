@@ -10,7 +10,7 @@ class Solution(object):
                 totalHrs += (pile + mid - 1) // mid
 
             if totalHrs <= h:
-                output = mid
                 right = mid  - 1
-            else: left = mid + 1
-        return output
+            else: 
+                left = mid + 1
+        return left
