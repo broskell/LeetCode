@@ -1,14 +1,10 @@
 class Solution(object):
     def containsDuplicate(self, nums):
-        freqMap = {}
+        unique = set()
 
         for num in nums:
-            if num in freqMap:
-                freqMap[num] += 1
-            else:
-                freqMap[num] = 1
-        
-        for count in freqMap.values():
-            if count > 1:
+            if num in unique:
                 return True
+            else:
+                unique.add(num)
         return False
