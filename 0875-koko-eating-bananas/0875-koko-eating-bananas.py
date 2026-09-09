@@ -1,11 +1,13 @@
 class Solution(object):
     def minEatingSpeed(self, piles, h):
         left, right = 1, max(piles)
-        output = float('inf')
 
         while left <= right:
             mid = (left + right) // 2
-            totalHrs = sum((pile + mid - 1) // mid for pile in piles)
+            totalHrs = 0
+
+            for pile in piles:
+                totalHrs += (pile + mid - 1) // mid
 
             if totalHrs <= h:
                 output = mid
