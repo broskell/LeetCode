@@ -1,4 +1,5 @@
 class Solution(object):
     def getConcatenation(self, nums):
-        ans = nums + nums
-        return ans
+        for i in range(0, len(nums), +1):
+            nums.append(nums[i])
+        return nums
