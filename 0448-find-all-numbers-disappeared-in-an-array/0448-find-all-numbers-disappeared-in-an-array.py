@@ -1,7 +1,8 @@
 class Solution(object):
     def findDisappearedNumbers(self, nums):
-        for num in nums:
-            index = abs(num) - 1
-            nums[index] = -abs(nums[index])
-
-        return [i + 1 for i, num in enumerate(nums) if num > 0]
+        seen = set(nums)
+        ans = []
+        for i in range(1, len(nums) + 1, +1):
+            if i not in seen:
+                ans.append(i)
+        return ans
