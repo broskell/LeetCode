@@ -5,6 +5,5 @@ class Solution(object):
         for num in nums:
             if num in unique:
                 return True
-            else: 
-                unique.add(num)
+            unique.add(num)
         return False
