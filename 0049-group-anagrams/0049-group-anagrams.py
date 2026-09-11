@@ -1,13 +1,12 @@
 class Solution(object):
     def groupAnagrams(self, strs):
-        strs_table = {}
+        strMap = {}
 
         for string in strs:
-            sorted_string = ''.join(sorted(string))
+            sortedString = ''.join(sorted(string))
 
-            if sorted_string not in strs_table:
-                strs_table[sorted_string] = []
+            if sortedString not in strMap:
+                strMap[sortedString] = []
 
-            strs_table[sorted_string].append(string)
-
-        return list(strs_table.values())
+            strMap[sortedString].append(string)
+        return list(strMap.values())
