@@ -1,9 +1,5 @@
 class Solution(object):
     def containsDuplicate(self, nums):
-        unique = set()
+        unique = set(nums)
 
-        for num in nums:
-            if num in unique:
-                return True
-            unique.add(num)
-        return False
+        return len(unique) != len(nums)
