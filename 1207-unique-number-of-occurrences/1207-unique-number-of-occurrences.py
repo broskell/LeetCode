@@ -4,10 +4,5 @@ class Solution(object):
 
         for num in arr:
             freqMap[num] = freqMap.get(num, 0) + 1
-
-        seen = set()
-        for count in freqMap.values():
-            if count in seen:
-                return False
-            seen.add(count)
-        return True
+            
+        return len(freqMap.values()) == len(set(freqMap.values()))
