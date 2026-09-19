@@ -4,10 +4,8 @@ class Solution(object):
 
         for num in unique:
             if num - 1 not in unique:
-                curNum = num
                 streak = 1
-                while curNum + 1 in unique:
+                while num + streak in unique:
                     streak += 1
-                    curNum += 1
                 longest = max(longest, streak)
         return longest
