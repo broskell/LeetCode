@@ -1,8 +1,8 @@
 class Solution(object):
     def findMaxLength(self, nums):
-        count, maxCount, freqMap = 0, 0, {0 : 0}
+        count, maxCount, freqMap = 0, 0, {0 : -1}
 
-        for index, num in enumerate(nums, 1):
+        for index, num in enumerate(nums):
             if num == 0:
                 count -= 1
             else: count += 1
