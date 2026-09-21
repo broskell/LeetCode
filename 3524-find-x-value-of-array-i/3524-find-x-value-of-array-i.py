@@ -1,22 +1,20 @@
 class Solution(object):
     def resultArray(self, nums, k):
-        ans = [0] * k
-        dp = [0] * k
+        cnt = [0] * k
+        result = [0] * k
         
         for num in nums:
-            new_dp = [0] * k
-            num_mod = num % k
+            a = num % k
+            nxtcnt = [0] * k
 
-            new_dp[num_mod] += 1
-            
-            for prev_rem in range(k):
-                if dp[prev_rem] > 0:
-                    new_rem = (prev_rem * num_mod) % k
-                    new_dp[new_rem] += dp[prev_rem]
-            
-            for rem in range(k):
-                ans[rem] += new_dp[rem]
+            for m in range(k):
+                mod = (m * a) % k
+                nxtcnt[mod] += cnt[m]
+                result[mod] += cnt[m]
 
-            dp = new_dp
+            nxtcnt[a] += 1
+            result[a] += 1
+
+            cnt = nxtcnt
             
-        return ans
+        return result
