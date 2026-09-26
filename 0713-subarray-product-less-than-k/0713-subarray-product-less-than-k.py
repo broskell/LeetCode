@@ -9,7 +9,7 @@ class Solution(object):
             pdt *= nums[right]
 
             while pdt >= k:
-                pdt /= nums[left]
+                pdt //= nums[left]
                 left += 1
             
             count += (right - left + 1)
