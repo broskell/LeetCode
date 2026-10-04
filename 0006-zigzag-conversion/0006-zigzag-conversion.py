@@ -3,19 +3,15 @@ class Solution(object):
         if numRows == 1 or numRows >= len(s):
             return s
         
-        index, d = 0, 1
-        row = [[] for _ in range(0, numRows, +1)]
+        i, step = 0, 1
+        rows = [""] * numRows
 
         for ch in s:
-            row[index].append(ch)
-
-            if index == 0:
-                d = 1
-            elif index == numRows - 1:
-                d = -1
-            index += d
+            rows[i] += ch
+            if i == 0:
+                step = 1
+            elif i == numRows - 1:
+                step = -1
+            i += step
         
-        for i in range(0, numRows, +1):
-            row[i] = ''.join(row[i])
-        
-        return ''.join(row)
+        return "".join(rows)
