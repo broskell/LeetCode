@@ -1,15 +1,12 @@
-class Solution(object):
+class Solution:
     def minInsertions(self, s):
-        i, insertions, right = 0, 0, 0
+        right, insertions, i = 0, 0, 0
 
         while i < len(s):
             if s[i] == '(':
-                right += 2
+                right += 1
+                i += 1
 
-                if right % 2 != 0:
-                    insertions += 1
-                    right -= 1
-                i += 1 
             else:
                 if i + 1 < len(s) and s[i + 1] == ')':
                     i += 2
@@ -18,7 +15,9 @@ class Solution(object):
                     i += 1
 
                 if right > 0:
-                    right -= 2
+                    right -= 1
                 else:
-                    insertions += 1 
-        return insertions + right
+                    insertions += 1
+        
+        insertions += right * 2
+        return insertions
