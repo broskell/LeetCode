@@ -7,6 +7,8 @@ class Solution(object):
                 even += 1
             elif nums[odd] % 2 != 0:
                 odd -= 1
-            elif nums[even] % 2 != 0 and nums[odd] % 2 == 0:
+            else:
                 nums[even], nums[odd] = nums[odd], nums[even]
+                even += 1
+                odd -= 1
         return nums
